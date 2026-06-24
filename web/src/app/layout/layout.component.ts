@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { SidebarComponent } from './sidebar.component';
 import { MenuItem } from '../shared/menu-item.model';
@@ -10,6 +10,8 @@ import { MenuItem } from '../shared/menu-item.model';
   imports: [RouterOutlet, SidebarComponent],
 })
 export class LayoutComponent {
+  sidebarCollapsed = signal(false);
+
   menuItems: MenuItem[] = [
     { title: 'Dashboard', icon: 'dashboard', link: '/dashboard' },
     { title: 'Alunos', icon: 'school', link: '/students' },
@@ -19,4 +21,8 @@ export class LayoutComponent {
     { title: 'Unidades Acadêmicas', icon: 'apartment', link: '/academic-units' },
     { title: 'TCCs', icon: 'description', link: '/thesis' },
   ];
+
+  toggleSidebar(): void {
+    this.sidebarCollapsed.update((value) => !value);
+  }
 }

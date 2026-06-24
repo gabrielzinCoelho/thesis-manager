@@ -1,14 +1,14 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { NavigationEnd, RouterModule, Router } from '@angular/router';
 import { filter } from 'rxjs';
+import { MatIconModule } from '@angular/material/icon';
 import { MenuItem } from '../shared/menu-item.model';
 
 @Component({
   selector: 'app-sidebar',
   templateUrl: './sidebar.component.html',
   standalone: true,
-  imports: [CommonModule, RouterModule],
+  imports: [RouterModule, MatIconModule],
 })
 export class SidebarComponent implements OnInit {
   @Input() menuItems: MenuItem[] = [];

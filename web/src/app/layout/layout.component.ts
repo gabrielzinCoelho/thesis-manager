@@ -11,12 +11,12 @@ import { MenuItem } from '../shared/menu-item.model';
 })
 export class LayoutComponent {
   menuItems: MenuItem[] = [
-    { title: 'Dashboard', icon: '📊', link: '/dashboard' },
-    { title: 'Alunos', icon: '👨‍🎓', link: '/students' },
-    { title: 'Professores', icon: '👨‍🏫', link: '/teachers' },
-    { title: 'Cursos', icon: '📚', link: '/courses' },
-    { title: 'Departamentos', icon: '🏢', link: '/departments' },
-    { title: 'Unidades Acadêmicas', icon: '🏛️', link: '/academic-units' },
-    { title: 'TCCs', icon: '📖', link: '/thesis' },
+    { title: 'Dashboard', icon: 'dashboard', link: '/dashboard' },
+    { title: 'Alunos', icon: 'school', link: '/students' },
+    { title: 'Professores', icon: 'groups', link: '/teachers' },
+    { title: 'Cursos', icon: 'menu_book', link: '/courses' },
+    { title: 'Departamentos', icon: 'account_balance', link: '/departments' },
+    { title: 'Unidades Acadêmicas', icon: 'apartment', link: '/academic-units' },
+    { title: 'TCCs', icon: 'description', link: '/thesis' },
   ];
 }

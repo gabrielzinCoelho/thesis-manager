@@ -1,0 +1,8 @@
+<div class="flex h-screen">
+  <div class="hidden lg:block">
+    <app-sidebar [menuItems]="menuItems"></app-sidebar>
+  </div>
+  <main class="flex-1 overflow-y-auto p-5 bg-slate-50 lg:ml-64">
+    <router-outlet></router-outlet>
+  </main>
+</div>

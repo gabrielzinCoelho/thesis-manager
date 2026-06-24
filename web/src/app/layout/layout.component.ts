@@ -1,6 +1,5 @@
-import { Component, signal } from '@angular/core';
+import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { CommonModule } from '@angular/common';
 import { SidebarComponent } from './sidebar.component';
 import { MenuItem } from '../shared/menu-item.model';
 
@@ -8,11 +7,9 @@ import { MenuItem } from '../shared/menu-item.model';
   selector: 'app-layout',
   templateUrl: './layout.component.html',
   standalone: true,
-  imports: [RouterOutlet, SidebarComponent, CommonModule],
+  imports: [RouterOutlet, SidebarComponent],
 })
 export class LayoutComponent {
-  isSidebarOpen = signal(false);
-
   menuItems: MenuItem[] = [
     { title: 'Dashboard', icon: '📊', link: '/dashboard' },
     { title: 'Alunos', icon: '👨‍🎓', link: '/students' },
@@ -22,12 +19,4 @@ export class LayoutComponent {
     { title: 'Unidades Acadêmicas', icon: '🏛️', link: '/academic-units' },
     { title: 'TCCs', icon: '📖', link: '/thesis' },
   ];
-
-  toggleSidebar(): void {
-    this.isSidebarOpen.update(value => !value);
-  }
-
-  closeSidebar(): void {
-    this.isSidebarOpen.set(false);
-  }
 }

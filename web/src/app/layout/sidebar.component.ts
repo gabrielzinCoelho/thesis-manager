@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule, Router } from '@angular/router';
+import { NavigationEnd, RouterModule, Router } from '@angular/router';
+import { filter } from 'rxjs';
 import { MenuItem } from '../shared/menu-item.model';
 
 @Component({
@@ -16,9 +17,13 @@ export class SidebarComponent implements OnInit {
   constructor(private router: Router) {}
 
   ngOnInit(): void {
-    this.router.events.subscribe(() => {
-      this.currentPath = this.router.url;
-    });
+    this.currentPath = this.router.url;
+
+    this.router.events
+      .pipe(filter((event): event is NavigationEnd => event instanceof NavigationEnd))
+      .subscribe(() => {
+        this.currentPath = this.router.url;
+      });
   }
 
   isActive(item: MenuItem): boolean {

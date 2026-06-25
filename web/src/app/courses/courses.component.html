@@ -1,1 +1,41 @@
-<h1>Courses</h1>
+<div class="p-2">
+  <h1 class="text-2xl font-bold text-slate-800 mb-6">Cursos</h1>
+
+  <div class="mb-4">
+    <input
+      [(ngModel)]="search"
+      (ngModelChange)="filter()"
+      placeholder="Buscar por nome, sigla ou código..."
+      class="border border-slate-300 rounded-md px-3 py-2 w-full max-w-sm text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+    />
+  </div>
+
+  <div class="overflow-x-auto rounded-lg shadow bg-white">
+    <table class="min-w-full text-sm">
+      <thead class="bg-slate-800 text-white">
+        <tr>
+          <th class="px-4 py-3 text-left">ID</th>
+          <th class="px-4 py-3 text-left">Nome</th>
+          <th class="px-4 py-3 text-left">Sigla</th>
+          <th class="px-4 py-3 text-left">Código</th>
+        </tr>
+      </thead>
+      <tbody>
+        @if (loading) {
+          <tr><td colspan="4" class="text-center py-8 text-slate-400">Carregando...</td></tr>
+        } @else if (filtered.length === 0) {
+          <tr><td colspan="4" class="text-center py-8 text-slate-400">Nenhum curso encontrado.</td></tr>
+        } @else {
+          @for (c of filtered; track c.id) {
+            <tr class="border-b border-slate-100 hover:bg-slate-50">
+              <td class="px-4 py-3 text-slate-500">{{ c.id }}</td>
+              <td class="px-4 py-3 font-medium">{{ c.nome }}</td>
+              <td class="px-4 py-3">{{ c.sigla }}</td>
+              <td class="px-4 py-3">{{ c.codigo }}</td>
+            </tr>
+          }
+        }
+      </tbody>
+    </table>
+  </div>
+</div>

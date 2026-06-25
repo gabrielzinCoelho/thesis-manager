@@ -13,4 +13,4 @@ RUN python manage.py makemigrations core && \
 
 EXPOSE 8000
 
-CMD ["python", "manage.py", "runserver", "0.0.0.0:$PORT"]
+CMD ["sh", "-c", "python manage.py runserver 0.0.0.0:$PORT"]
